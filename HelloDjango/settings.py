@@ -23,12 +23,36 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'osucw!k0(c*^a-cgd6c9gfogzb&y6tf^eew^an0+v!&34c4w9!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# you can try below lines of code which was commented by commenting the previous successive lines of code
+DEBUG = True
+# DEBUG = False
+#
+# # in this i am not allowing these bad reqests ,so  it shows  you 404 error.
+# ALLOWED_HOSTS = ['example.com','127.0.0.0']
+#
+
+
+
+
+# By default, the ALLOWED_HOSTS variable is present in settings.
+# py but it's empty. The purpose of ALLOWED_HOSTS is to validate a request's (HTTP) Host header.
+# Validation is done to prevent rogue users from sending fake HTTP Host headers that can potentially poison caches and password reset emails with links to malicious hosts.
+# Since this issue can only present itself under an uncontrolled user environment (i.e. public/production servers),
+# validation is only done when DEBUG=False.
+#
+# If you switch to DEBUG=False and ALLOWED_HOSTS is left empty,
+#  Django will refuse to serve requests and instead report HTTP 400 bad request pages because it can't validate incoming HTTP Host headers against any allowed value.
+#  Listing 1 illustrates a sample definition of ALLOWED_HOSTS.
+
+
 
 # Application definition
+
+# see the last list item in INSTALLED_APPS.hat is our HelloWorld app.like this evry shold be included ,if in case django make any mistake
+# you have toi nclude,hopefully it wont do lik that
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -49,6 +73,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Get the Project to Know About Your Application urls(We have included here Project level urls.py file ,whch consists of  evry url of the app )
 
 ROOT_URLCONF = 'HelloDjango.urls'
 
